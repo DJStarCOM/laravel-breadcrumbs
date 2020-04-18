@@ -1,6 +1,6 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 class SkipFileLoadingTest extends TestCase
 {
@@ -11,7 +11,7 @@ class SkipFileLoadingTest extends TestCase
         $app->config->set('breadcrumbs.files', []);
     }
 
-    /** @covers \DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::registerBreadcrumbs */
+    /** @covers \DJStarCOM\Breadcrumbs\BreadcrumbsServiceProvider::registerBreadcrumbs */
     public function testLoading()
     {
         // I can't think of a way to actually test this since nothing is loaded -

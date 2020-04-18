@@ -1,28 +1,18 @@
-**As of 18 April 2020, Laravel Breadcrumbs is not being maintained.**
-
-It will probably keep working for a while - I [removed the version constraint](#v532-mon-30-dec-2019) from `composer.json`, so it will keep working until a future version of Laravel makes breaking changes.
-
-If you want to create your own fork, to fix bugs or add new features, please see [the instructions below](#creating-a-pull-request). The [MIT license](#license) requires you to keep the copyright notice and license information, but otherwise you can do what you like with the code and documentation.
-
-Thanks to the [contributors](https://github.com/davejamesmiller/laravel-breadcrumbs/graphs/contributors) who helped maintain it and add features over the last 7 years - I just don't have the energy for maintaining open source projects (or writing blog posts, or for social media) that I did in 2013, and I've decided it's time to focus on new projects instead.
-
-— *Dave*
-
----
+**Due to the fact that Dave has stopped supporting this package. It was decided to transfer all further development to a new repository.**
 
  ![](logo.svg)  
  Laravel Breadcrumbs
 ================================================================================
 
-[![Latest Stable Version](https://poser.pugx.org/davejamesmiller/laravel-breadcrumbs/v/stable)](https://packagist.org/packages/davejamesmiller/laravel-breadcrumbs)
-[![Total Downloads](https://poser.pugx.org/davejamesmiller/laravel-breadcrumbs/downloads)](https://packagist.org/packages/davejamesmiller/laravel-breadcrumbs)
-[![Monthly Downloads](https://poser.pugx.org/davejamesmiller/laravel-breadcrumbs/d/monthly)](https://packagist.org/packages/davejamesmiller/laravel-breadcrumbs)
-[![License](https://poser.pugx.org/davejamesmiller/laravel-breadcrumbs/license)](https://packagist.org/packages/davejamesmiller/laravel-breadcrumbs)<br>
-[![Latest Unstable Version](https://poser.pugx.org/davejamesmiller/laravel-breadcrumbs/v/unstable)](https://packagist.org/packages/davejamesmiller/laravel-breadcrumbs)
-[![Build Status](https://travis-ci.com/davejamesmiller/laravel-breadcrumbs.svg?branch=master)](https://travis-ci.com/davejamesmiller/laravel-breadcrumbs)
-[![Coverage Status](https://coveralls.io/repos/github/davejamesmiller/laravel-breadcrumbs/badge.svg?branch=master)](https://coveralls.io/github/davejamesmiller/laravel-breadcrumbs?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/DJStarCOM/laravel-breadcrumbs/v/stable)](https://packagist.org/packages/DJStarCOM/laravel-breadcrumbs)
+[![Total Downloads](https://poser.pugx.org/DJStarCOM/laravel-breadcrumbs/downloads)](https://packagist.org/packages/DJStarCOM/laravel-breadcrumbs)
+[![Monthly Downloads](https://poser.pugx.org/DJStarCOM/laravel-breadcrumbs/d/monthly)](https://packagist.org/packages/DJStarCOM/laravel-breadcrumbs)
+[![License](https://poser.pugx.org/DJStarCOM/laravel-breadcrumbs/license)](https://packagist.org/packages/DJStarCOM/laravel-breadcrumbs)
+[![Latest Unstable Version](https://poser.pugx.org/DJStarCOM/laravel-breadcrumbs/v/unstable)](https://packagist.org/packages/DJStarCOM/laravel-breadcrumbs)
+[![Build Status](https://travis-ci.com/DJStarCOM/laravel-breadcrumbs.svg?branch=master)](https://travis-ci.com/DJStarCOM/laravel-breadcrumbs)
+[![Coverage Status](https://coveralls.io/repos/github/DJStarCOM/laravel-breadcrumbs/badge.svg?branch=master)](https://coveralls.io/github/DJStarCOM/laravel-breadcrumbs?branch=master)
 
-A simple [Laravel](https://laravel.com/)-style way to create breadcrumbs.
+A simple [Laravel](https://laravel.com/) - style way to create breadcrumbs.
 
 
  Table of Contents
@@ -50,14 +40,14 @@ A simple [Laravel](https://laravel.com/)-style way to create breadcrumbs.
 
 | Laravel Breadcrumbs                                                    | Laravel      | PHP  |
 |------------------------------------------------------------------------|--------------|------|
-| **5.3.2**                                                              | 5.6+         | 7.1+ |
+| **5.3.2 - 5.3.3**                                                      | 5.6+         | 7.1+ |
 | 5.3.0 – 5.3.1                                                          | 5.6 – 6.x    | 7.1+ |
 | 5.2.1                                                                  | 5.6 – 5.8    | 7.1+ |
 | 5.1.1 – 5.2.0                                                          | 5.6 – 5.7    | 7.1+ |
 | 5.0.0 – 5.1.0                                                          | 5.6          | 7.1+ |
-| [4.x](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/4.x) | 5.5          | 7.0+ |
-| [3.x](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/3.x) | 5.0 – 5.4    | 5.4+ |
-| [2.x](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/2.x) | 4.0 – 4.2    | 5.3+ |
+| [4.x](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/4.x) | 5.5          | 7.0+ |
+| [3.x](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/3.x) | 5.0 – 5.4    | 5.4+ |
+| [2.x](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/2.x) | 4.0 – 4.2    | 5.3+ |
 
 
  Getting Started
@@ -65,14 +55,14 @@ A simple [Laravel](https://laravel.com/)-style way to create breadcrumbs.
 
 ***Note:** If you are using an older version, click it in the table above to see the documentation for that version.*
 
-***Note 2:** If you think this documentation can be improved in any way, please [edit this file](https://github.com/davejamesmiller/laravel-breadcrumbs/edit/master/README.md) and make a pull request.*
+***Note 2:** If you think this documentation can be improved in any way, please [edit this file](https://github.com/DJStarCOM/laravel-breadcrumbs/edit/master/README.md) and make a pull request.*
 
 ### 1. Install Laravel Breadcrumbs
 
 Run this at the command line:
 
 ```bash
-composer require davejamesmiller/laravel-breadcrumbs:5.x
+composer require DJStarCOM/laravel-breadcrumbs:5.x
 ```
 
 This will update `composer.json` and install the package into the `vendor/` directory.
@@ -236,7 +226,7 @@ Breadcrumbs::for('post', function ($trail, $post) {
 });
 ```
 
-The `$post` object (probably an [Eloquent](https://laravel.com/docs/5.7/eloquent) model, but could be anything) would simply be passed in from the view:
+The `$post` object (probably an [Eloquent](https://laravel.com/docs/6.x/eloquent) model, but could be anything) would simply be passed in from the view:
 
 ```blade
 {{ Breadcrumbs::render('post', $post) }}
@@ -315,7 +305,7 @@ To customise the HTML, create your own view file (e.g. `resources/views/partials
 @endif
 ```
 
-(See the [views/ directory](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/master/views) for the built-in templates.)
+(See the [views/ directory](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/master/views) for the built-in templates.)
 
 
 #### View data
@@ -570,7 +560,7 @@ Breadcrumbs::for('post', function ($trail, $post) { // <-- The same Post model i
 
 This makes your code less verbose and more efficient by only loading the post from the database once.
 
-For more details see [Route Model Binding](https://laravel.com/docs/5.5/routing#route-model-binding) in the Laravel documentation.
+For more details see [Route Model Binding](https://laravel.com/docs/6.x/routing#route-model-binding) in the Laravel documentation.
 
 
 ### Resourceful controllers
@@ -626,7 +616,7 @@ Breadcrumbs::for('photo.edit', function ($trail, $photo) {
 });
 ```
 
-For more details see [Resource Controllers](https://laravel.com/docs/5.5/controllers#resource-controllers) in the Laravel documentation.
+For more details see [Resource Controllers](https://laravel.com/docs/6.x/controllers#resource-controllers) in the Laravel documentation.
 
 (Related FAQ: [Why is there no Breadcrumbs::resource() method?](#why-is-there-no-breadcrumbsresource-method).)
 
@@ -807,10 +797,10 @@ class MyServiceProvider extends ServiceProvider
 
 ### Dependency injection
 
-You can use [dependency injection](https://laravel.com/docs/5.5/providers#the-boot-method) to access the `BreadcrumbsManager` instance if you prefer, instead of using the `Breadcrumbs::` facade:
+You can use [dependency injection](https://laravel.com/docs/6.x/providers#the-boot-method) to access the `BreadcrumbsManager` instance if you prefer, instead of using the `Breadcrumbs::` facade:
 
 ```php
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsManager;
+use DJStarCOM\Breadcrumbs\BreadcrumbsManager;
 use Illuminate\Support\ServiceProvider;
 
 class MyServiceProvider extends ServiceProvider
@@ -852,10 +842,10 @@ For more advanced customisations you can subclass BreadcrumbsManager and/or Brea
 
 ```php
     // Manager
-    'manager-class' => DaveJamesMiller\Breadcrumbs\BreadcrumbsManager::class,
+    'manager-class' => DJStarCOM\Breadcrumbs\BreadcrumbsManager::class,
 
     // Generator
-    'generator-class' => DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator::class,
+    'generator-class' => DJStarCOM\Breadcrumbs\BreadcrumbsGenerator::class,
 ```
 
 (**Note:** Anything that's not part of the public API (see below) may change between releases, so I suggest you write unit tests to ensure it doesn't break when upgrading.)
@@ -894,7 +884,7 @@ For more advanced customisations you can subclass BreadcrumbsManager and/or Brea
 
 ```php
 use App\Models\Post;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
+use DJStarCOM\Breadcrumbs\BreadcrumbsGenerator;
 
 Breadcrumbs::before(function (BreadcrumbsGenerator $trail) {
     // ...
@@ -967,7 +957,7 @@ If it breaks for any reason, it will be fixed when (1) someone [submits a pull r
 
 ### Why is there no Breadcrumbs::resource() method?
 
-A few people have suggested adding `Breadcrumbs::resource()` to match [`Route::resource()`](https://laravel.com/docs/5.7/controllers#resource-controllers), but no-one has come up with a good implementation that (a) is flexible enough to deal with translations, nested resources, etc., and (b) isn't overly complex as a result.
+A few people have suggested adding `Breadcrumbs::resource()` to match [`Route::resource()`](https://laravel.com/docs/6.x/controllers#resource-controllers), but no-one has come up with a good implementation that (a) is flexible enough to deal with translations, nested resources, etc., and (b) isn't overly complex as a result.
 
 Personally I don't think there is a good all-round solution, so instead I recommend adding your own using `Breadcrumbs::macro()`. Here's a starting point:
 
@@ -1016,7 +1006,7 @@ Note that this *doesn't* deal with translations or nested resources, and it assu
 
 #### Class 'Breadcrumbs' not found
 
-- Try running `composer update davejamesmiller/laravel-breadcrumbs` to upgrade.
+- Try running `composer update DJStarCOM/laravel-breadcrumbs` to upgrade.
 - Try running `php artisan package:discover` to ensure the service provider is detected by Laravel.
 
 #### Breadcrumb not found with name ...
@@ -1047,17 +1037,17 @@ Note that this *doesn't* deal with translations or nested resources, and it assu
 
 #### Something else
 
-Sorry I wasn't able to help this time, but once you have solved your problem, please [edit this file](https://github.com/davejamesmiller/laravel-breadcrumbs/edit/master/README.md) with the solution to help the next person!
+Sorry I wasn't able to help this time, but once you have solved your problem, please [edit this file](https://github.com/DJStarCOM/laravel-breadcrumbs/edit/master/README.md) with the solution to help the next person!
 
 
  Contributing
 --------------------------------------------------------------------------------
 
-**Documentation:** If you think the documentation can be improved in any way, please do [edit this file](https://github.com/davejamesmiller/laravel-breadcrumbs/edit/master/README.md) and make a pull request.
+**Documentation:** If you think the documentation can be improved in any way, please do [edit this file](https://github.com/DJStarCOM/laravel-breadcrumbs/edit/master/README.md) and make a pull request.
 
-**Bug fixes:** Please fix it and open a [pull request](https://github.com/davejamesmiller/laravel-breadcrumbs/pulls). ([See below](#creating-a-pull-request) for more detailed instructions.) Bonus points if you add a unit test to make sure it doesn't happen again!
+**Bug fixes:** Please fix it and open a [pull request](https://github.com/DJStarCOM/laravel-breadcrumbs/pulls). ([See below](#creating-a-pull-request) for more detailed instructions.) Bonus points if you add a unit test to make sure it doesn't happen again!
 
-**New features:** Only features with a clear use case and well-considered API will be accepted. They must be documented and include unit tests. If in doubt, make a proof-of-concept (either code or documentation) and open a [pull request](https://github.com/davejamesmiller/laravel-breadcrumbs/pulls) to discuss the details. (Tip: If you want a feature that's too specific to be included by default, see [Macros](#macros) or [Advanced customisations](#advanced-customisations) for ways to add them.)
+**New features:** Only features with a clear use case and well-considered API will be accepted. They must be documented and include unit tests. If in doubt, make a proof-of-concept (either code or documentation) and open a [pull request](https://github.com/DJStarCOM/laravel-breadcrumbs/pulls) to discuss the details. (Tip: If you want a feature that's too specific to be included by default, see [Macros](#macros) or [Advanced customisations](#advanced-customisations) for ways to add them.)
 
 
 ### Creating a pull request
@@ -1065,14 +1055,14 @@ Sorry I wasn't able to help this time, but once you have solved your problem, pl
 The easiest way to work on Laravel Breadcrumbs is to tell Composer to install it from source (Git) using the `--prefer-source` flag:
 
 ```bash
-rm -rf vendor/davejamesmiller/laravel-breadcrumbs
+rm -rf vendor/DJStarCOM/laravel-breadcrumbs
 composer install --prefer-source
 ```
 
 Then checkout the master branch and create your own local branch to work on:
 
 ```bash
-cd vendor/davejamesmiller/laravel-breadcrumbs
+cd vendor/DJStarCOM/laravel-breadcrumbs
 git checkout -t origin/master
 git checkout -b YOUR_BRANCH
 ```
@@ -1083,7 +1073,7 @@ Now make your changes, including unit tests and documentation (if appropriate). 
 scripts/test.sh
 ```
 
-Then commit the changes. [Fork the repository on GitHub](https://github.com/davejamesmiller/laravel-breadcrumbs/fork) if you haven't already, and push your changes to it:
+Then commit the changes. [Fork the repository on GitHub](https://github.com/DJStarCOM/laravel-breadcrumbs/fork) if you haven't already, and push your changes to it:
 
 ```bash
 git remote add YOUR_USERNAME git@github.com:YOUR_USERNAME/laravel-breadcrumbs.git
@@ -1092,7 +1082,7 @@ git push -u YOUR_USERNAME YOUR_BRANCH
 
 Finally, browse to the repository on GitHub and create a pull request.
 
-(Alternatively, there is a [test app](https://github.com/davejamesmiller/laravel-packages-test) that you can use.)
+(Alternatively, there is a [test app](https://github.com/DJStarCOM/laravel-packages-test) that you can use.)
 
 
 ### Using your fork in a project
@@ -1110,7 +1100,7 @@ To use your own fork in a project, update the `composer.json` in your main proje
     ],
     "require": {
         // UPDATE THIS:
-        "davejamesmiller/laravel-breadcrumbs": "dev-YOUR_BRANCH"
+        "DJStarCOM/laravel-breadcrumbs": "dev-YOUR_BRANCH"
     }
 }
 ```
@@ -1161,14 +1151,14 @@ If backwards-incompatible changes cause the **minimum** supported versions of La
 *This section is for maintainers only.*
 
 - Ensure the unit tests are updated and have 100% coverage
-- Update the [test app](https://github.com/davejamesmiller/laravel-packages-test), if appropriate, and test it manually
+- Update the [test app](https://github.com/DJStarCOM/laravel-packages-test), if appropriate, and test it manually
 - Ensure the [README](README.md) is up to date, including:
     - Document any new features
     - [Compatibility Chart](README.md#compatibility-chart)
     - [Changelog](README.md#changelog)
 - Merge the changes into the `master` branch (if necessary)
 - Push the code changes to GitHub (`git push`)
-- Make sure [all tests are passing](https://travis-ci.org/davejamesmiller/laravel-breadcrumbs)
+- Make sure [all tests are passing](https://travis-ci.org/DJStarCOM/laravel-breadcrumbs)
 - Tag the release (`git tag 1.2.3`)
 - Push the tag (`git push --tag`)
 
@@ -1178,7 +1168,7 @@ If backwards-incompatible changes cause the **minimum** supported versions of La
 
 Sorry, I don't offer any technical support, and GitHub Issues are disabled. That means I won't figure out why it's not working for you, I won't fix bugs for you, and I won't write new features on request - this is **free** software after all.
 
-**But** the beauty of open source is you can do whatever you want with it! You can fork it, fix it, improve it and extend it. If you don't want to maintain your own fork, and you think other people would benefit from your changes, you can submit a [pull request](https://github.com/davejamesmiller/laravel-breadcrumbs/pulls) to have your changes included in the next release.
+**But** the beauty of open source is you can do whatever you want with it! You can fork it, fix it, improve it and extend it. If you don't want to maintain your own fork, and you think other people would benefit from your changes, you can submit a [pull request](https://github.com/DJStarCOM/laravel-breadcrumbs/pulls) to have your changes included in the next release.
 
 If you get really stuck, I suggest you:
 
@@ -1196,6 +1186,10 @@ If you get really stuck, I suggest you:
 --------------------------------------------------------------------------------
 
 *Laravel Breadcrumbs uses [Semantic Versioning](http://semver.org/).*
+
+### [v5.3.3](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/5.3.3) (Sat 18 Apr 2020)
+
+- Due to the fact that Dave has stopped supporting this package. It was decided to transfer all further development to a new repository.
 
 
 ### [v5.3.2](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/5.3.2) (Mon 30 Dec 2019)
@@ -1269,13 +1263,16 @@ No changes are required, but I recommend updating your `routes/breadcrumbs.php` 
 - [Changelog for v3.x](https://github.com/davejamesmiller/laravel-breadcrumbs/tree/3.x#changelog)
 - [Changelog for v2.x and below](https://github.com/davejamesmiller/laravel-breadcrumbs/blob/2.x/CHANGELOG.md)
 
+### Author
+@[davejamesmiller](https://github.com/davejamesmiller)
+
 
  License
 --------------------------------------------------------------------------------
 
 *[MIT License](https://choosealicense.com/licenses/mit/)*
 
-**Copyright © 2013-2019 Dave James Miller**
+**Copyright © 2020 Tsepeniuk Stanislav**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

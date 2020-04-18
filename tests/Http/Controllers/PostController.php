@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Breadcrumbs;
-use BreadcrumbsTests\Models\Post;
+use DJStarCOM\Breadcrumbs\Tests\Models\Post;
 
 class PostController
 {

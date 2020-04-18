@@ -1,6 +1,6 @@
 <?php
 
-namespace BreadcrumbsTests\Models;
+namespace DJStarCOM\Breadcrumbs\Tests\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
 use Config;
-use DaveJamesMiller\Breadcrumbs\Exceptions\DuplicateBreadcrumbException;
-use DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException;
-use DaveJamesMiller\Breadcrumbs\Exceptions\UnnamedRouteException;
-use DaveJamesMiller\Breadcrumbs\Exceptions\ViewNotSetException;
+use DJStarCOM\Breadcrumbs\Exceptions\DuplicateBreadcrumbException;
+use DJStarCOM\Breadcrumbs\Exceptions\InvalidBreadcrumbException;
+use DJStarCOM\Breadcrumbs\Exceptions\UnnamedRouteException;
+use DJStarCOM\Breadcrumbs\Exceptions\ViewNotSetException;
 use ErrorException;
 use Facade\IgnitionContracts\ProvidesSolution;
 use Route;

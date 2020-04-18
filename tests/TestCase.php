@@ -1,9 +1,9 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider;
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use DJStarCOM\Breadcrumbs\BreadcrumbsServiceProvider;
+use DJStarCOM\Breadcrumbs\Facades\Breadcrumbs;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 

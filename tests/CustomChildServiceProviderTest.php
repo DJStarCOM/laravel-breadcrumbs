@@ -1,9 +1,9 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider as BreadcrumbsServiceProvider;
+use DJStarCOM\Breadcrumbs\BreadcrumbsServiceProvider as BreadcrumbsServiceProvider;
 
 class CustomChildServiceProviderTest extends TestCase
 {

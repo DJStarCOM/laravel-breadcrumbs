@@ -1,8 +1,8 @@
 <?php
 
-namespace DaveJamesMiller\Breadcrumbs;
+namespace DJStarCOM\Breadcrumbs;
 
-use DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException;
+use DJStarCOM\Breadcrumbs\Exceptions\InvalidBreadcrumbException;
 use Illuminate\Support\Collection;
 
 /**

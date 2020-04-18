@@ -1,6 +1,6 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
 use Illuminate\Contracts\Console\Kernel;

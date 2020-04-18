@@ -1,9 +1,9 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsManager;
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+use DJStarCOM\Breadcrumbs\BreadcrumbsManager;
+use DJStarCOM\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
 use ReflectionClass;

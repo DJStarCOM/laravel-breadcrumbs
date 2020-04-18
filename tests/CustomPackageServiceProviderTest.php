@@ -1,11 +1,11 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsManager;
-use DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider;
+use DJStarCOM\Breadcrumbs\BreadcrumbsGenerator;
+use DJStarCOM\Breadcrumbs\BreadcrumbsManager;
+use DJStarCOM\Breadcrumbs\BreadcrumbsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class CustomPackageServiceProviderTest extends TestCase

@@ -1,9 +1,9 @@
 <?php
 
-namespace BreadcrumbsTests;
+namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
-use BreadcrumbsTests\Models\Post;
+use DJStarCOM\Breadcrumbs\Tests\Models\Post;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Collection;
 use Route;
@@ -260,7 +260,7 @@ class AdvancedUsageTest extends TestCase
 
     public function testClearCurrentRoute()
     {
-        $this->expectException(\DaveJamesMiller\Breadcrumbs\Exceptions\InvalidBreadcrumbException::class);
+        $this->expectException(\DJStarCOM\Breadcrumbs\Exceptions\InvalidBreadcrumbException::class);
 
         Breadcrumbs::for('sample', function ($trail, $a, $b) {
             $trail->push("Sample $a, $b");
