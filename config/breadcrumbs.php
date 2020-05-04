@@ -72,4 +72,22 @@ return [
     // Generator
     'generator-class' => DJStarCOM\Breadcrumbs\BreadcrumbsGenerator::class,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Options
+    |--------------------------------------------------------------------------
+    |
+    | Default options for more advanced customisations.
+    |
+    */
+
+    'options' => [
+        'default' => [
+            'showFirstItem' => true,
+            'showLastItem' => true,
+        ],
+        'json-ld' => [
+            'showLastItem' => false,
+        ],
+    ],
 ];

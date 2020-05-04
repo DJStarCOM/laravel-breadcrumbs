@@ -4,6 +4,17 @@
         <div class="nav-wrapper">
             <div class="col s12">
                 @foreach ($breadcrumbs as $breadcrumb)
+                    @if ($loop->first)
+                        @if (config('breadcrumbs.options.materialize.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true)
+                            @continue;
+                        @endif
+                    @endif
+
+                    @if ($loop->last)
+                        @if (config('breadcrumbs.options.materialize.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true)
+                            @continue;
+                        @endif
+                    @endif
 
                     @if ($breadcrumb->url && !$loop->last)
                         <a href="{{ $breadcrumb->url }}" class="breadcrumb">{{ $breadcrumb->title }}</a>

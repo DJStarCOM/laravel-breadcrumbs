@@ -2,6 +2,17 @@
 
     <ol class="breadcrumb">
         @foreach ($breadcrumbs as $breadcrumb)
+            @if ($loop->first)
+                @if (config('breadcrumbs.options.bootstrap3.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true)
+                    @continue;
+                @endif
+            @endif
+
+            @if ($loop->last)
+                @if (config('breadcrumbs.options.bootstrap3.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true)
+                    @continue;
+                @endif
+            @endif
 
             @if ($breadcrumb->url && !$loop->last)
                 <li><a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>

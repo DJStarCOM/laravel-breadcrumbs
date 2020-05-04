@@ -9,6 +9,18 @@ $json = [
 ];
 
 foreach ($breadcrumbs as $i => $breadcrumb) {
+    if (config('breadcrumbs.options.json-ld.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true) {
+        if (array_key_first($breadcrumbs) === $i) {
+            continue;
+        }
+    }
+
+    if (config('breadcrumbs.options.json-ld.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true) {
+        if ($breadcrumbs->last) {
+            continue;
+        }
+    }
+
     $json['itemListElement'][] = [
         '@type'    => 'ListItem',
         'position' => $i + 1,
