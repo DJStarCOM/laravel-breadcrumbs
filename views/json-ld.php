@@ -9,14 +9,14 @@ $json = [
 ];
 
 foreach ($breadcrumbs as $i => $breadcrumb) {
-    if (config('breadcrumbs.options.json-ld.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true) {
-        if (array_key_first($breadcrumbs) === $i) {
+    if ($breadcrumbs->keys()->first() === $i) {
+        if ($breadcrumbs->count() > 1 && config('breadcrumbs.options.json-ld.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true) {
             continue;
         }
     }
 
-    if (config('breadcrumbs.options.json-ld.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true) {
-        if ($breadcrumbs->last) {
+    if ($breadcrumbs->keys()->last() === $i) {
+        if ($breadcrumbs->count() > 1 && config('breadcrumbs.options.json-ld.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true) {
             continue;
         }
     }

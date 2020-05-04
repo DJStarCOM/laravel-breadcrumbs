@@ -4,13 +4,13 @@
         <ul>
             @foreach ($breadcrumbs as $breadcrumb)
                 @if ($loop->first)
-                    @if (config('breadcrumbs.options.bulma.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true)
+                    @if ($breadcrumbs->count() > 1 && config('breadcrumbs.options.bulma.showFirstItem', config('breadcrumbs.options.default.showFirstItem', true)) !== true)
                         @continue;
                     @endif
                 @endif
 
                 @if ($loop->last)
-                    @if (config('breadcrumbs.options.bulma.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true)
+                    @if ($breadcrumbs->count() > 1 && config('breadcrumbs.options.bulma.showLastItem', config('breadcrumbs.options.default.showLastItem', true)) !== true)
                         @continue;
                     @endif
 
