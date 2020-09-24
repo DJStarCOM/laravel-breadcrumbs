@@ -40,7 +40,8 @@ A simple [Laravel](https://laravel.com/) - style way to create breadcrumbs.
 
 | Laravel Breadcrumbs                                                    | Laravel      | PHP  |
 |------------------------------------------------------------------------|--------------|------|
-| **5.3.2 - 5.3.4**                                                      | 5.6+         | 7.1+ |
+| **5.4**                                                      | 6+         | 7.1+ |
+| 5.3.2 - 5.3.4                                                      | 5.6+         | 7.1+ |
 | 5.3.0 – 5.3.1                                                          | 5.6 – 6.x    | 7.1+ |
 | 5.2.1                                                                  | 5.6 – 5.8    | 7.1+ |
 | 5.1.1 – 5.2.0                                                          | 5.6 – 5.7    | 7.1+ |
@@ -1186,6 +1187,12 @@ If you get really stuck, I suggest you:
 --------------------------------------------------------------------------------
 
 *Laravel Breadcrumbs uses [Semantic Versioning](http://semver.org/).*
+
+
+### [v5.4](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/5.4) (Mon 24 Sept 2020)
+
+- Added Laravel 7 and 8 support.
+
 
 ### [v5.3.4](https://github.com/DJStarCOM/laravel-breadcrumbs/tree/5.3.4) (Mon 4 May 2020)
 
