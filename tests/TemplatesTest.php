@@ -34,7 +34,7 @@ class TemplatesTest extends TestCase
         ];
     }
 
-    public function viewProvider(): Generator
+    public static function viewProvider(): Generator
     {
         foreach (glob(__DIR__ . '/../views/*.blade.php') as $filename) {
             $name = basename($filename, '.blade.php');
