@@ -6,6 +6,7 @@ use DJStarCOM\Breadcrumbs\BreadcrumbsManager;
 use DJStarCOM\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
@@ -39,6 +40,7 @@ class FacadePhpDocTest extends TestCase
     }
 
     /** @dataProvider tags */
+    #[DataProvider('tags')]
     public function testFullyQualifiedClassNames($class, $line)
     {
         // IDE Helper (v2.4.3) doesn't rewrite class names to FQCNs, so make sure only

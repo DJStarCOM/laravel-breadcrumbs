@@ -6,21 +6,24 @@
   not have, so it configured coverage for nothing. When coverage is wanted, pass the
   coverage-filter and coverage-html options to vendor/bin/phpunit on the command line.
 
-  Known and deliberate: six tests still carry their metadata in doc-comments
-  (@dataProvider in IgnitionTest, TemplatesTest and FacadePhpDocTest, @covers in
-  SkipFileLoadingTest). PHPUnit 11 reports them as deprecated; PHPUnit 12 ignores
-  them outright, and the data-provider tests then stop being discovered. Measured
-  on Laravel 13.40.0, PHP 8.3.36: PHPUnit 11.5.57 runs 117 tests / 229 assertions,
-  PHPUnit 12.5.43 runs 65 tests / 160 assertions with 5 errors - 52 tests silently
-  gone.
+  Data providers carry #[DataProvider] attributes as well as their @dataProvider
+  doc-comments. PHPUnit 9.6 does not read attributes - they are ordinary PHP 8
+  syntax and it ignores them - so the doc-comments are what keeps Laravel 8 and 9
+  working; PHPUnit 10 and newer read the attribute and leave the doc-comment alone,
+  so nothing is provided twice. Measured on PHP 8.3.36, with and without the
+  attributes, nothing else changed:
 
-  The replacement - #[DataProvider] / #[CoversMethod] attributes - is only read by
-  PHPUnit 10 and newer, and this suite must still run on PHPUnit 9.5, the only line
-  orchestra/testbench ^6|^7 (Laravel 8 and 9) will install. The version-agnostic way
-  out is to drop the providers for explicit test methods, which renames ~30 snapshot
-  files. Until one of those is done the "phpunit/phpunit": "^9.5|^10.5|^11.0" ceiling
-  is what keeps PHPUnit 12 from being installed, so the failure above cannot be
-  reached by accident - do not raise it without doing the conversion first.
+      L8.83.29  / PHPUnit 9.6.38   117 tests / 229 assertions  ->  unchanged
+      L12.71.0  / PHPUnit 11.5.57  117 / 229, 6 deprecations   ->  117 / 229, 1
+      L13.40.0  / PHPUnit 12.5.43   65 / 160 with 5 errors     ->  117 / 229
+
+  The PHPUnit 12 line is the reason this exists: that version ignores doc-comment
+  metadata outright, so before the attributes 52 tests were silently not discovered.
+
+  One doc-comment is left: @covers in SkipFileLoadingTest, the single remaining
+  deprecation under PHPUnit 11. Its attribute form, #[CoversMethod], only exists
+  from PHPUnit 11 onwards and would break the PHPUnit 10.5 line, and unlike
+  @dataProvider, losing @covers drops a coverage restriction rather than a test.
 -->
 <phpunit
     backupGlobals="false"

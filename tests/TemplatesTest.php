@@ -4,6 +4,7 @@ namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
 use Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TemplatesTest extends TestCase
 {
@@ -43,6 +44,7 @@ class TemplatesTest extends TestCase
     }
 
     /** @dataProvider viewProvider */
+    #[DataProvider('viewProvider')]
     public function testView($view)
     {
         $html = Breadcrumbs::view("breadcrumbs::$view", 'category', $this->category)->toHtml();

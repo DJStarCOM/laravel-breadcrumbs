@@ -11,6 +11,7 @@ use DJStarCOM\Breadcrumbs\Exceptions\ViewNotSetException;
 use ErrorException;
 use Spatie\ErrorSolutions\Contracts\ProvidesSolution;
 use Spatie\ErrorSolutions\Contracts\Solution;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Route;
 
 class IgnitionTest extends TestCase
@@ -35,6 +36,7 @@ class IgnitionTest extends TestCase
     }
 
     /** @dataProvider dataOneOrManyConfigFiles */
+    #[DataProvider('dataOneOrManyConfigFiles')]
     public function testDuplicateBreadcrumbSolution(array $files)
     {
         Config::set('breadcrumbs.files', $files);
@@ -52,6 +54,7 @@ class IgnitionTest extends TestCase
     }
 
     /** @dataProvider dataOneOrManyConfigFiles */
+    #[DataProvider('dataOneOrManyConfigFiles')]
     public function testInvalidBreadcrumbSolution(array $files)
     {
         Config::set('breadcrumbs.files', $files);
@@ -65,6 +68,7 @@ class IgnitionTest extends TestCase
     }
 
     /** @dataProvider dataOneOrManyConfigFiles */
+    #[DataProvider('dataOneOrManyConfigFiles')]
     public function testMissingRouteBoundBreadcrumbSolution(array $files)
     {
         Config::set('breadcrumbs.files', $files);
