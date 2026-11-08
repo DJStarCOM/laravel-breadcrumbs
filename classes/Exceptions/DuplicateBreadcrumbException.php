@@ -3,9 +3,9 @@
 namespace DJStarCOM\Breadcrumbs\Exceptions;
 
 use DJStarCOM\Breadcrumbs\BreadcrumbsException;
-use Spatie\Ignition\Contracts\Solution;
-use Spatie\Ignition\Contracts\BaseSolution;
-use Spatie\Ignition\Contracts\ProvidesSolution;
+use Spatie\ErrorSolutions\Contracts\Solution;
+use Spatie\ErrorSolutions\Contracts\BaseSolution;
+use Spatie\ErrorSolutions\Contracts\ProvidesSolution;
 use Illuminate\Support\Str;
 
 /**

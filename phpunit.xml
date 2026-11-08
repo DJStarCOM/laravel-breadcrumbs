@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Kept to the attributes that exist in the schema of PHPUnit 9.5, 10.5 and 11 alike.
+  Removed: backupStaticAttributes, verbose, convert*ToExceptions (gone in PHPUnit 10)
+  and the filter/whitelist block, which pointed at src/ - a directory this package does
+  not have, so it configured coverage for nothing. When coverage is wanted, pass the
+  coverage-filter and coverage-html options to vendor/bin/phpunit on the command line.
+-->
 <phpunit
     backupGlobals="false"
-    backupStaticAttributes="false"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutOutputDuringTests="true"
     beStrictAboutTestsThatDoNotTestAnything="true"
     bootstrap="vendor/autoload.php"
     cacheResult="true"
     colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
     processIsolation="false"
     stopOnFailure="false"
-    verbose="true"
 >
 
     <!-- List of files with tests inside -->
@@ -22,12 +24,5 @@
             <directory suffix="Test.php">tests/</directory>
         </testsuite>
     </testsuites>
-
-    <!-- List of source files for code coverage checker -->
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
 
 </phpunit>

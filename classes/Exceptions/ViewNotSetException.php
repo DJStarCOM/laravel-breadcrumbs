@@ -3,9 +3,9 @@
 namespace DJStarCOM\Breadcrumbs\Exceptions;
 
 use DJStarCOM\Breadcrumbs\BreadcrumbsException;
-use Spatie\Ignition\Contracts\Solution;
-use Spatie\Ignition\Contracts\BaseSolution;
-use Spatie\Ignition\Contracts\ProvidesSolution;
+use Spatie\ErrorSolutions\Contracts\Solution;
+use Spatie\ErrorSolutions\Contracts\BaseSolution;
+use Spatie\ErrorSolutions\Contracts\ProvidesSolution;
 
 /**
  * Exception that is thrown if the user attempts to render breadcrumbs without setting a view.

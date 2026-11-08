@@ -9,7 +9,7 @@ use DJStarCOM\Breadcrumbs\Exceptions\InvalidBreadcrumbException;
 use DJStarCOM\Breadcrumbs\Exceptions\UnnamedRouteException;
 use DJStarCOM\Breadcrumbs\Exceptions\ViewNotSetException;
 use ErrorException;
-use Spatie\Ignition\Contracts\ProvidesSolution;
+use Spatie\ErrorSolutions\Contracts\ProvidesSolution;
 use Route;
 
 class IgnitionTest extends TestCase

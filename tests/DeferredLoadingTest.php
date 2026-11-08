@@ -3,7 +3,10 @@
 namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
+use DJStarCOM\Breadcrumbs\BreadcrumbsManager;
+use DJStarCOM\Breadcrumbs\BreadcrumbsServiceProvider;
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use LogicException;
 
 class DeferredLoadingTest extends TestCase
@@ -28,6 +31,21 @@ class DeferredLoadingTest extends TestCase
         // Контракт Illuminate\Contracts\Console\Kernel реализуется заглушкой:
         // в этом тесте ядро нужно только для того, чтобы ничего не делать.
         $app->singleton(Kernel::class, DisabledConsoleKernel::class);
+    }
+
+    /**
+     * Laravel decides whether a provider is deferred by looking for the DeferrableProvider
+     * interface (Illuminate\Foundation\ProviderRepository::compileManifest). The legacy
+     * isDeferred() method this package used to rely on has been ignored since Laravel 5.8,
+     * so without this check testDeferredLoading() below passes either way - the console
+     * kernel it disables is the only thing that would have loaded the provider anyway.
+     */
+    public function testTheServiceProviderIsMarkedAsDeferred()
+    {
+        $provider = new BreadcrumbsServiceProvider($this->app);
+
+        $this->assertInstanceOf(DeferrableProvider::class, $provider);
+        $this->assertSame([BreadcrumbsManager::class], $provider->provides());
     }
 
     public function testDeferredLoading()
