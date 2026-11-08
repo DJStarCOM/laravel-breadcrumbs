@@ -10,6 +10,7 @@ use DJStarCOM\Breadcrumbs\Exceptions\UnnamedRouteException;
 use DJStarCOM\Breadcrumbs\Exceptions\ViewNotSetException;
 use ErrorException;
 use Spatie\ErrorSolutions\Contracts\ProvidesSolution;
+use Spatie\ErrorSolutions\Contracts\Solution;
 use Route;
 
 class IgnitionTest extends TestCase
@@ -77,6 +78,65 @@ class IgnitionTest extends TestCase
             $this->fail('No exception thrown');
         } catch (InvalidBreadcrumbException $e) {
             $this->assertSolutionMatchesSnapshot($e);
+        }
+    }
+
+    /**
+     * The default config ships absolute paths (base_path('routes/breadcrumbs.php')),
+     * so in a real application every file name reaching the solution text is absolute
+     * and has to be made relative before it is shown. The snapshot cases above cannot
+     * see this: they configure relative paths, which leaves nothing to strip.
+     */
+    public function testDuplicateSolutionStripsTheBasePathFromASingleFile()
+    {
+        Config::set('breadcrumbs.files', [base_path('routes/breadcrumbs.php')]);
+
+        $description = $this->duplicateSolution()->getSolutionDescription();
+
+        $this->assertStringContainsString('`routes/breadcrumbs.php`', $description);
+        $this->assertStringNotContainsString(base_path(), $description);
+    }
+
+    public function testDuplicateSolutionStripsTheBasePathFromEveryFile()
+    {
+        Config::set('breadcrumbs.files', [
+            base_path('breadcrumbs/file1.php'),
+            base_path('breadcrumbs/file2.php'),
+        ]);
+
+        $description = $this->duplicateSolution()->getSolutionDescription();
+
+        $this->assertStringContainsString('`breadcrumbs/file1.php`', $description);
+        $this->assertStringContainsString('`breadcrumbs/file2.php`', $description);
+        $this->assertStringNotContainsString(base_path(), $description);
+    }
+
+    public function testInvalidBreadcrumbSolutionStripsTheBasePath()
+    {
+        Config::set('breadcrumbs.files', [base_path('routes/breadcrumbs.php')]);
+
+        try {
+            Breadcrumbs::render('invalid');
+            $this->fail('No exception thrown');
+        } catch (InvalidBreadcrumbException $e) {
+            $title = $e->getSolution()->getSolutionTitle();
+
+            $this->assertSame('Add this to routes/breadcrumbs.php', $title);
+            $this->assertStringNotContainsString(base_path(), $title);
+        }
+    }
+
+    private function duplicateSolution(): Solution
+    {
+        Breadcrumbs::for('duplicate-absolute', function () {
+        });
+
+        try {
+            Breadcrumbs::for('duplicate-absolute', function () {
+            });
+            $this->fail('No exception thrown');
+        } catch (DuplicateBreadcrumbException $e) {
+            return $e->getSolution();
         }
     }
 

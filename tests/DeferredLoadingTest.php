@@ -34,11 +34,17 @@ class DeferredLoadingTest extends TestCase
     }
 
     /**
-     * Laravel decides whether a provider is deferred by looking for the DeferrableProvider
-     * interface (Illuminate\Foundation\ProviderRepository::compileManifest). The legacy
-     * isDeferred() method this package used to rely on has been ignored since Laravel 5.8,
-     * so without this check testDeferredLoading() below passes either way - the console
-     * kernel it disables is the only thing that would have loaded the provider anyway.
+     * ProviderRepository::compileManifest() calls $provider->isDeferred(). In
+     * Illuminate\Support\ServiceProvider that method is `return $this instanceof
+     * DeferrableProvider`, but it is an ordinary virtual method: the override this
+     * package used to carry (`isDeferred() { return true; }`) worked just as well,
+     * on Laravel 8 through 12. Implementing the interface instead of overriding the
+     * method is a modernisation, not a change of behaviour - this check is here so
+     * that the deferral cannot be dropped silently now that the override is gone.
+     *
+     * testDeferredLoading() below cannot stand in for it: the console kernel it
+     * disables is the only thing that would have loaded the provider anyway, so it
+     * passes either way.
      */
     public function testTheServiceProviderIsMarkedAsDeferred()
     {

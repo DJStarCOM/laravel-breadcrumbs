@@ -5,6 +5,22 @@
   and the filter/whitelist block, which pointed at src/ - a directory this package does
   not have, so it configured coverage for nothing. When coverage is wanted, pass the
   coverage-filter and coverage-html options to vendor/bin/phpunit on the command line.
+
+  Known and deliberate: six tests still carry their metadata in doc-comments
+  (@dataProvider in IgnitionTest, TemplatesTest and FacadePhpDocTest, @covers in
+  SkipFileLoadingTest). PHPUnit 11 reports them as deprecated; PHPUnit 12 ignores
+  them outright, and the data-provider tests then stop being discovered. Measured
+  on Laravel 13.40.0, PHP 8.3.36: PHPUnit 11.5.57 runs 117 tests / 229 assertions,
+  PHPUnit 12.5.43 runs 65 tests / 160 assertions with 5 errors - 52 tests silently
+  gone.
+
+  The replacement - #[DataProvider] / #[CoversMethod] attributes - is only read by
+  PHPUnit 10 and newer, and this suite must still run on PHPUnit 9.5, the only line
+  orchestra/testbench ^6|^7 (Laravel 8 and 9) will install. The version-agnostic way
+  out is to drop the providers for explicit test methods, which renames ~30 snapshot
+  files. Until one of those is done the "phpunit/phpunit": "^9.5|^10.5|^11.0" ceiling
+  is what keeps PHPUnit 12 from being installed, so the failure above cannot be
+  reached by accident - do not raise it without doing the conversion first.
 -->
 <phpunit
     backupGlobals="false"
