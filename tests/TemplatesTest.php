@@ -4,6 +4,7 @@ namespace DJStarCOM\Breadcrumbs\Tests;
 
 use Breadcrumbs;
 use Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TemplatesTest extends TestCase
 {
@@ -34,7 +35,7 @@ class TemplatesTest extends TestCase
         ];
     }
 
-    public function viewProvider(): Generator
+    public static function viewProvider(): Generator
     {
         foreach (glob(__DIR__ . '/../views/*.blade.php') as $filename) {
             $name = basename($filename, '.blade.php');
@@ -43,6 +44,7 @@ class TemplatesTest extends TestCase
     }
 
     /** @dataProvider viewProvider */
+    #[DataProvider('viewProvider')]
     public function testView($view)
     {
         $html = Breadcrumbs::view("breadcrumbs::$view", 'category', $this->category)->toHtml();

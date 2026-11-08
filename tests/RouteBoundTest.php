@@ -319,4 +319,44 @@ class RouteBoundTest extends TestCase
             </ol>
         ', $html);
     }
+
+    /**
+     * Route parameters are handed to the breadcrumb closure positionally, which is
+     * what array_values() in BreadcrumbsManager::getCurrentRoute() is for: since
+     * PHP 8, spreading an array with string keys passes named arguments, so without
+     * it a closure whose parameter happens to be named something other than the
+     * route segment dies with "Unknown named parameter".
+     *
+     * Every other route-bound test here names the closure parameter exactly like the
+     * segment ({id} / $id), so they pass either way and the call stays untested.
+     */
+    public function testRouteParametersArePassedPositionallyWhenTheNamesDiffer()
+    {
+        // Home
+        Route::name('home')->get('/', function () { });
+
+        Breadcrumbs::for('home', function ($trail) {
+            $trail->push('Home', route('home'));
+        });
+
+        // Home > [Post] - segment is {id}, closure parameter is deliberately not $id
+        Route::name('post')->get('/post/{id}', function () {
+            return Breadcrumbs::render();
+        });
+
+        Breadcrumbs::for('post', function ($trail, $postKey) {
+            $post = Post::findOrFail($postKey);
+            $trail->parent('home');
+            $trail->push($post->title, route('post', $post));
+        });
+
+        $html = $this->get('/post/1')->content();
+
+        $this->assertXmlStringEqualsXmlString('
+            <ol>
+                <li><a href="http://localhost">Home</a></li>
+                <li class="current">Post 1</li>
+            </ol>
+        ', $html);
+    }
 }
