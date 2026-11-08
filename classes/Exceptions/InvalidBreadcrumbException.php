@@ -3,9 +3,9 @@
 namespace DJStarCOM\Breadcrumbs\Exceptions;
 
 use DJStarCOM\Breadcrumbs\BreadcrumbsException;
-use Facade\IgnitionContracts\BaseSolution;
-use Facade\IgnitionContracts\ProvidesSolution;
-use Facade\IgnitionContracts\Solution;
+use Spatie\Ignition\Contracts\BaseSolution;
+use Spatie\Ignition\Contracts\ProvidesSolution;
+use Spatie\Ignition\Contracts\Solution;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
